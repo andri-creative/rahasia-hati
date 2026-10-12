@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1226" />
+  <title>Rahasia Hati 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <button id="music-pill" aria-label="Nyalakan atau matikan musik">
+    <span class="disc-icon">♪</span>
+    <span id="music-label">Musik</span>
+  </button>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <main id="stage">
+
+    <!-- ============================================================
+         SESI 1 — MASA AWAL & RAHASIA YANG DISIMPAN RAPAT (1–11)
+         ============================================================ -->
+
+    <!-- ============ 1. TOPLES KACA BINTANG PERTAMA ============ -->
+    <section class="scene active" id="scene-1" data-session="1" aria-label="Babak 1 Toples Kaca Bintang Pertama">
+      <div class="scene-emoji">🌟</div>
+      <h2 class="scene-title">Toples Kaca Bintang Pertama</h2>
+      <p class="scene-sub">Toples kaca bening ini berpendar lembut. Ketuk tutupnya tiga kali agar bintang pertamaku melayang keluar.</p>
+
+      <div class="toy jar-stage">
+        <div class="jar" id="jar" role="button" tabindex="0" aria-label="Ketuk toples untuk membuka tutup">
+          <div class="jar-lid" id="jar-lid"></div>
+          <div class="jar-glass">
+            <span class="fold-star" style="--d:0s"></span>
+            <span class="fold-star" style="--d:.4s"></span>
+            <span class="fold-star" style="--d:.8s"></span>
+            <div class="jar-shine"></div>
+          </div>
+          <span class="jar-hint" id="jar-hint">ketuk</span>
+        </div>
+        <div class="jar-rays" aria-hidden="true"></div>
+      </div>
+
+      <div class="whisper" id="q-1"><p>“Dahulu, ada satu rahasia yang terlalu berharga untuk diucapkan dengan suara keras. Maka aku hanya melipatnya menjadi bintang kecil, berharap suatu saat semesta menyampaikannya padamu...”</p></div>
+
+      <p class="status" id="st-1">Bintang keluar: 0/3</p>
+      <button class="btn-main hidden" id="btn-1-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 2. PERMEN SUSU PENGHIBUR DUKA ============ -->
+    <section class="scene" id="scene-2" data-session="1" aria-label="Babak 2 Permen Susu Penghibur Duka">
+      <div class="scene-emoji">🍬</div>
+      <h2 class="scene-title">Permen Susu Penghibur Duka</h2>
+      <p class="scene-sub">Usap bungkus permen pelan-pelan ke kiri dan ke kanan sampai pita SVG-nya terlepas.</p>
+
+      <div class="toy candy-stage">
+        <div class="candy" id="candy">
+          <div class="candy-body">
+            <span class="candy-shine"></span>
+          </div>
+          <div class="wrap wrap-l" id="wrap-l"><i></i></div>
+          <div class="wrap wrap-r" id="wrap-r"><i></i></div>
+          <svg class="candy-bow" id="candy-bow" viewBox="0 0 80 56" aria-hidden="true">
+            <path d="M40 28 C24 6 6 10 10 26 C13 39 30 36 40 28 Z" fill="#ff9aa2"/>
+            <path d="M40 28 C56 6 74 10 70 26 C67 39 50 36 40 28 Z" fill="#ffb7b2"/>
+            <circle cx="40" cy="28" r="7" fill="#e63946"/>
+            <path d="M36 34 L28 52 M44 34 L52 52" stroke="#ff9aa2" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <span class="candy-mark">SUSU</span>
+        </div>
+        <p class="toy-hint" id="candy-hint">usap bungkusnya → ←</p>
+      </div>
+
+      <div class="whisper" id="q-2"><p>“Saat hariku terasa begitu berat dan mataku mulai berkaca-kaca, kamu selalu ada... menyelipkan rasa manis sederhana yang sanggup menepis seluruh rasa sedihku.”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-2"></span></div>
+      <p class="status" id="st-2">Bungkus masih rapat · 0%</p>
+      <button class="btn-main hidden" id="btn-2-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 3. CATATAN RAHASIA DI BALIK BUKU ============ -->
+    <section class="scene" id="scene-3" data-session="1" aria-label="Babak 3 Catatan Rahasia di Balik Buku Sekolah">
+      <div class="scene-emoji">📓</div>
+      <h2 class="scene-title">Catatan Rahasia di Balik Buku</h2>
+      <p class="scene-sub">Geser pembatas pita ke kanan — halaman buku akan terbuka menunjukkan coretan tulisan tanganku.</p>
+
+      <div class="toy notebook" id="notebook">
+        <div class="nb-page">
+          <div class="nb-lines"></div>
+          <p class="nb-hand" id="nb-hand"></p>
+        </div>
+        <div class="nb-cover" id="nb-cover">
+          <span class="nb-title">Catatan Kecil</span>
+          <span class="nb-sub">jangan dibuka orang lain</span>
+        </div>
+        <div class="nb-ribbon" id="nb-ribbon" role="button" tabindex="0" aria-label="Geser pembatas pita ke kanan">
+          <span class="rb-tail"></span>
+          <span class="rb-hint">geser →</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-3"><p>“Di sudut halaman buku yang tak pernah kubiarkan dibaca orang lain, aku diam-diam menuliskan betapa hangatnya senyumanmu hari itu.”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-3"></span></div>
+      <p class="status" id="st-3">Pembatas pita: 0%</p>
+      <button class="btn-main hidden" id="btn-3-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 4. ELUSAN LEMBUT DI KEPALA ============ -->
+    <section class="scene" id="scene-4" data-session="1" aria-label="Babak 4 Elusan Lembut di Kepala">
+      <div class="scene-emoji">🫶</div>
+      <h2 class="scene-title">Elusan Lembut di Kepala</h2>
+      <p class="scene-sub">Usap layar ke atas dan ke bawah untuk mengelus kepalaku. Tiga elusan sudah cukup membuatku salting.</p>
+
+      <div class="toy chibi-stage" id="chibi-stage">
+        <div class="chibi" id="chibi">
+          <div class="ch-hair"><span></span><span></span></div>
+          <div class="ch-face">
+            <span class="ch-eye l"></span><span class="ch-eye r"></span>
+            <span class="ch-blush bl"></span><span class="ch-blush br"></span>
+            <span class="ch-mouth"></span>
+          </div>
+          <div class="ch-body"></div>
+          <div class="ch-arm"></div>
+        </div>
+        <p class="toy-hint">usap ke atas ↓ ↑ di sini</p>
+      </div>
+
+      <div class="whisper" id="q-4"><p>“Setiap kali tanganmu menepuk lembut kepalaku dan berkata ‘kamu sudah berusaha dengan baik’, detak jantungku selalu berdegup terlalu kencang untuk bisa disembunyikan...”</p></div>
+
+      <p class="status" id="st-4">Elusan: 0/3</p>
+      <button class="btn-main hidden" id="btn-4-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 5. ES KRIM STROBERI DI BAWAH TERIK SENJA ============ -->
+    <section class="scene" id="scene-5" data-session="1" aria-label="Babak 5 Es Krim Stroberi">
+      <div class="scene-emoji">🍦</div>
+      <h2 class="scene-title">Es Krim Stroberi di Bawah Senja</h2>
+      <p class="scene-sub">Ketuk cepat tetesan es krim yang jatuh sebelum meleleh di atas tanah. Tangkap 8 tetesan!</p>
+
+      <div class="toy ic-stage" id="ic-stage">
+        <div class="senja-glow"></div>
+        <div class="icecream">
+          <div class="sprinkles"></div>
+          <div class="scoop s2"></div>
+          <div class="scoop s1"></div>
+          <div class="cone"></div>
+        </div>
+        <div class="ic-ground" id="ic-ground"></div>
+      </div>
+
+      <div class="whisper" id="q-5"><p>“Manisnya es krim di sore itu tak seberapa dibanding rasa bahagia karena bisa berjalan di sampingmu sedikit lebih lama.”</p></div>
+
+      <p class="status" id="st-5">Tertangkap: 0/8 · Meleleh: 0</p>
+      <button class="btn-main hidden" id="btn-5-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 6. SYAL HANGAT SEMBUNGI WAJAH MERONA ============ -->
+    <section class="scene" id="scene-6" data-session="1" aria-label="Babak 6 Syal Hangat">
+      <div class="scene-emoji">🧣</div>
+      <h2 class="scene-title">Syal Hangat Sembunyi Wajah Merona</h2>
+      <p class="scene-sub">Tarik syal rajutan wol ke atas untuk menutupi separuh wajahku yang sedang tersipu malu.</p>
+
+      <div class="toy scarf-stage" id="scarf-stage">
+        <div class="face shy" id="shy-face">
+          <span class="fc-eye l"></span><span class="fc-eye r"></span>
+          <span class="fc-blush l"></span><span class="fc-blush r"></span>
+          <span class="fc-mouth"></span>
+        </div>
+        <div class="scarf" id="scarf" role="button" tabindex="0" aria-label="Tarik syal ke atas">
+          <span class="scarf-knit"></span>
+          <span class="scarf-hint">tarik ke atas ↑</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-6"><p>“Bukan hanya udara malam yang dingin yang membuatku menyembunyikan wajah di balik syal ini... tapi juga karena aku takut kamu melihat betapa merahnya pipiku saat menatapmu.”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-6"></span></div>
+      <p class="status" id="st-6">Syal: 0%</p>
+      <button class="btn-main hidden" id="btn-6-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 7. LENTERA JALAN & MENGHITUNG LANGKAH ============ -->
+    <section class="scene" id="scene-7" data-session="1" aria-label="Babak 7 Lentera Jalan">
+      <div class="scene-emoji">🏮</div>
+      <h2 class="scene-title">Lentera Jalan &amp; Langkah Berdua</h2>
+      <p class="scene-sub">Nyalakan sakelar lampu jalan, lalu geser langkah kaki agar siluet kita melangkah seirama.</p>
+
+      <div class="toy lamp-street" id="lamp-street">
+        <div class="lamp-post" id="lamp-post" role="button" tabindex="0" aria-label="Nyalakan sakelar lentera">
+          <div class="lamp-head">
+            <div class="lamp-glow"></div>
+            <div class="lamp-bulb"></div>
+          </div>
+          <div class="lamp-pole"></div>
+          <div class="lamp-base"></div>
+          <span class="lamp-switch" id="lamp-switch">sakelar</span>
+        </div>
+        <div class="walk-path">
+          <div class="walkers" id="walkers">
+            <div class="walker a"><i class="leg l1"></i><i class="leg l2"></i></div>
+            <div class="walker b"><i class="leg l1"></i><i class="leg l2"></i></div>
+          </div>
+          <span class="path-end">🏫</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-7"><p>“Di bawah temaram lampu jalan, aku selalu diam-diam memperlambat langkahku, hanya agar malam ini tidak lekas berakhir.”</p></div>
+
+      <label class="ctrl-label" for="walk-slider">Geser langkah kaki</label>
+      <input type="range" id="walk-slider" class="soft-slider" min="0" max="100" value="0" />
+      <p class="status" id="st-7">Lentera: mati · Langkah: 0%</p>
+      <button class="btn-main hidden" id="btn-7-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 8. GANTUNGAN KUNCI BONEKA LUCU ============ -->
+    <section class="scene" id="scene-8" data-session="1" aria-label="Babak 8 Gantungan Kunci Boneka Lucu">
+      <div class="scene-emoji">🧸</div>
+      <h2 class="scene-title">Gantungan Kunci Boneka Lucu</h2>
+      <p class="scene-sub">Tarik boneka beruang ke bawah lalu lepaskan — ia akan membal-membal dengan bunyi lonceng ting-ting. Lakukan 3 kali.</p>
+
+      <div class="toy key-stage" id="key-stage">
+        <div class="bag-strap"></div>
+        <div class="key-ring"></div>
+        <div class="key-chain" id="key-chain"></div>
+        <div class="bear" id="bear" role="button" tabindex="0" aria-label="Tarik boneka ke bawah lalu lepaskan">
+          <span class="ear l"></span><span class="ear r"></span>
+          <span class="bear-head">
+            <i class="eye l"></i><i class="eye r"></i>
+            <i class="muzzle"></i><i class="nose"></i>
+          </span>
+          <span class="bear-body"></span>
+          <span class="tag">FOR YOU</span>
+        </div>
+        <p class="toy-hint">tarik ke bawah ↓ lepas</p>
+      </div>
+
+      <div class="whisper" id="q-8"><p>“Hadiah kecil darimu yang selalu kubawa ke mana pun aku pergi, menjadi pelindung kecil saat rasa rinduku mulai tak tertahankan.”</p></div>
+
+      <p class="status" id="st-8">Ditarik: 0/3</p>
+      <button class="btn-main hidden" id="btn-8-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 9. PLESTER LUKA BERGAMBAR HATI ============ -->
+    <section class="scene" id="scene-9" data-session="1" aria-label="Babak 9 Plester Luka Bergambar Hati">
+      <div class="scene-emoji">🩹</div>
+      <h2 class="scene-title">Plester Luka Bergambar Hati</h2>
+      <p class="scene-sub">Seret plester luka motif hati, lalu tempelkan dengan hati-hati tepat di atas goresan kecil di lenganku.</p>
+
+      <div class="toy heal-stage" id="heal-stage">
+        <div class="arm" id="arm">
+          <span class="arm-shine"></span>
+          <div class="scratch" id="scratch"></div>
+          <div class="sparkle" id="sparkle">✨</div>
+        </div>
+        <div class="bandaid" id="bandaid" role="button" tabindex="0" aria-label="Seret plester ke goresan">
+          <svg viewBox="0 0 120 60" aria-hidden="true">
+            <rect x="2" y="14" width="116" height="32" rx="16" fill="#ffd9dc"/>
+            <rect x="34" y="8" width="52" height="44" rx="14" fill="#ffe5d0"/>
+            <path d="M60 44 C48 34 40 30 42 24 C44 18 54 20 60 27 C66 20 76 18 78 24 C80 30 72 34 60 44 Z" fill="#e63946"/>
+            <g fill="#ff9aa2" opacity=".85">
+              <circle cx="46" cy="22" r="2.4"/><circle cx="74" cy="38" r="2.4"/>
+              <circle cx="54" cy="38" r="2.4"/><circle cx="66" cy="22" r="2.4"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-9"><p>“Luka kecil ini bahkan tak terasa perih lagi, saat melihat bagaimana tatapan matamu begitu cemas dan lembut merawatku.”</p></div>
+
+      <p class="status" id="st-9">Plester belum ditempel</p>
+      <button class="btn-main hidden" id="btn-9-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 10. PESAWAT KERTAS MELINTASI DUA KOTA ============ -->
+    <section class="scene" id="scene-10" data-session="1" aria-label="Babak 10 Pesawat Kertas Melintasi Dua Kota">
+      <div class="scene-emoji">✈️</div>
+      <h2 class="scene-title">Pesawat Kertas Melintasi Dua Kota</h2>
+      <p class="scene-sub">Tarik pesawat kertas ke belakang, tahan sebentar, lalu lepaskan untuk menerbangkannya ke kotamu.</p>
+
+      <div class="toy sky-stage" id="sky-stage">
+        <div class="sky-sun"></div>
+        <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+        <div class="city city-a"><span>🏠</span><label>kotamu</label></div>
+        <div class="city city-b"><span>🏙️</span><label>kotaku</label></div>
+        <div class="plane-path" id="plane-path"></div>
+        <div class="paper-plane" id="paper-plane" role="button" tabindex="0" aria-label="Tarik ke belakang lalu lepaskan">
+          <svg viewBox="0 0 64 48" aria-hidden="true">
+            <path d="M2 24 L62 3 L38 45 L28 29 Z" fill="#fff6ee"/>
+            <path d="M2 24 L62 3 L38 45 Z" fill="#ffe5d0"/>
+            <path d="M28 29 L62 3 L38 45" fill="none" stroke="#ffb7b2" stroke-width="2"/>
+            <path d="M2 24 L28 29" stroke="#ff9aa2" stroke-width="2"/>
+          </svg>
+        </div>
+        <p class="toy-hint" id="plane-hint">tarik ke belakang ⤺</p>
+      </div>
+
+      <div class="whisper" id="q-10"><p>“Ketika jarak memisahkan kita beratus-ratus kilometer, setiap doa malamku kuterbangkan ke arah kotamu...”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-10"></span></div>
+      <p class="status" id="st-10">Tenaga tarikan: 0%</p>
+      <button class="btn-main hidden" id="btn-10-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 11. TIKET PERJALANAN & KERINDUAN DEWASA ============ -->
+    <section class="scene" id="scene-11" data-session="1" aria-label="Babak 11 Tiket Perjalanan">
+      <div class="scene-emoji">🎫</div>
+      <h2 class="scene-title">Tiket Perjalanan &amp; Kerinduan</h2>
+      <p class="scene-sub">Waktu berganti dan aku tumbuh dewasa. Ketuk kedua stempel untuk menandai tiket menuju kotamu.</p>
+
+      <div class="toy ticket" id="ticket">
+        <div class="tk-head">
+          <span class="tk-line"></span>
+          <strong>TIKET PERJALANAN</strong>
+          <span class="tk-line"></span>
+        </div>
+        <div class="tk-body">
+          <div class="tk-row"><label>Penumpang</label><b>Aku — yang menunggu</b></div>
+          <div class="tk-row"><label>Asal</label><b>Kota Sendirian</b></div>
+          <div class="tk-row"><label>Tujuan</label><b>Kota Hatimu 🩷</b></div>
+          <div class="tk-row"><label>Kerinduan</label><b>5 tahun — nonstop</b></div>
+        </div>
+        <div class="tk-marks">
+          <div class="stamp-mark m1" id="mark-1">12 OKT<br><small>07:20</small></div>
+          <div class="stamp-mark m2" id="mark-2">SELAMANYA<br><small>tanpa pulang</small></div>
+        </div>
+        <div class="tk-actions">
+          <button class="stamp-btn" id="stamp-1" type="button">📅 Tanggal</button>
+          <button class="stamp-btn" id="stamp-2" type="button">⏰ Jam Tiba</button>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-11"><p>“Waktu berganti dan aku perlahan tumbuh dewasa... membuktikan bahwa rasa yang kusimpan ini bukan sekadar kekaguman sesaat, melainkan tujuan dari seluruh perjalananku.”</p></div>
+
+      <p class="status" id="st-11">Stempel: 0/2</p>
+      <button class="btn-main hidden" id="btn-11-next" type="button">Tandai tiket →</button>
+    </section>
+
+    <!-- ============================================================
+         SESI 2 — REUNI, KEBERANIAN & JANJI BERSAMA (12–22)
+         ============================================================ -->
+
+    <!-- ============ 12. PAYUNG BENING DI TENGAH GERIMIS ============ -->
+    <section class="scene" id="scene-12" data-session="2" aria-label="Babak 12 Payung Bening di Tengah Gerimis">
+      <div class="scene-emoji">☔</div>
+      <h2 class="scene-title">Payung Bening di Tengah Gerimis</h2>
+      <p class="scene-sub">Buka payung bening berembun itu, lalu geser tubuhku merapat ke bahumu di bawah satu payung.</p>
+
+      <div class="toy rain-stage" id="rain-stage">
+        <div class="rain" id="rain" aria-hidden="true"></div>
+        <div class="pair">
+          <div class="figure you"></div>
+          <div class="figure me" id="fig-me">
+            <span class="fig-blush"></span>
+          </div>
+        </div>
+        <div class="umbrella" id="umbrella" role="button" tabindex="0" aria-label="Ketuk untuk membuka payung">
+          <div class="umb-canopy"></div>
+          <div class="umb-ribs"><i></i><i></i><i></i><i></i></div>
+          <div class="umb-stick"></div>
+          <span class="umb-hint" id="umb-hint">ketuk untuk buka</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-12"><p>“Hujan di kota ini terasa begitu hangat, saat bahumu merapat melindungiku agar tak terkena tetesan air.”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-12"></span></div>
+      <p class="status" id="st-12">Payung: tertutup</p>
+      <button class="btn-main hidden" id="btn-12-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 13. CANGKIR COKELAT MARSHMALLOW ============ -->
+    <section class="scene" id="scene-13" data-session="2" aria-label="Babak 13 Cangkir Cokelat Marshmallow">
+      <div class="scene-emoji">☕</div>
+      <h2 class="scene-title">Cangkir Cokelat Marshmallow</h2>
+      <p class="scene-sub">Seret tiga marshmallow hati ke dalam cangkir sampai busa cokelatnya meluap harum.</p>
+
+      <div class="toy cocoa-stage" id="cocoa-stage">
+        <div class="mug" id="mug">
+          <div class="mug-steam"><i></i><i></i><i></i></div>
+          <div class="mug-inner">
+            <div class="mug-cocoa"></div>
+            <div class="mug-foam" id="mug-foam"></div>
+          </div>
+          <div class="mug-handle"></div>
+          <div class="mug-base"></div>
+          <span class="mug-heart">♥</span>
+        </div>
+        <div class="mallows" id="mallows">
+          <span class="mallow" data-i="0" role="button" tabindex="0" aria-label="Seret marshmallow ke cangkir">♥</span>
+          <span class="mallow" data-i="1" role="button" tabindex="0" aria-label="Seret marshmallow ke cangkir">♥</span>
+          <span class="mallow" data-i="2" role="button" tabindex="0" aria-label="Seret marshmallow ke cangkir">♥</span>
+        </div>
+        <p class="toy-hint" id="cocoa-hint">seret ke dalam cangkir ↓</p>
+      </div>
+
+      <div class="whisper" id="q-13"><p>“Kehangatan ini persis seperti caramu selalu memperlakukanku: lembut, tulus, dan menenangkan setiap sudut hatiku.”</p></div>
+
+      <p class="status" id="st-13">Marshmallow: 0/3</p>
+      <button class="btn-main hidden" id="btn-13-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 14. BUKU SKETSA POTRET RAHASIA ============ -->
+    <section class="scene" id="scene-14" data-session="2" aria-label="Babak 14 Buku Sketsa Potret Rahasia">
+      <div class="scene-emoji">🎨</div>
+      <h2 class="scene-title">Buku Sketsa Potret Rahasia</h2>
+      <p class="scene-sub">Buka lembar demi lembar — setiap goresan pensil menyimpan wajah yang tak pernah berhenti kutunggu.</p>
+
+      <div class="toy sketch" id="sketch">
+        <div class="sk-sheet s3">
+          <svg viewBox="0 0 240 190" aria-hidden="true">
+            <g fill="none" stroke="#5b4a68" stroke-width="2.4" stroke-linecap="round">
+              <path d="M60 150 q10 -60 60 -60 q50 0 60 60"/>
+              <circle cx="120" cy="78" r="34"/>
+              <path d="M92 68 q10 -26 34 -22 q22 4 24 26"/>
+              <path d="M104 82 h10 M128 82 h10"/>
+              <path d="M112 100 q8 8 16 0"/>
+              <path d="M70 150 q50 18 100 0" stroke-dasharray="4 6"/>
+              <path d="M178 44 l6 12 12 6 -12 6 -6 12 -6 -12 -12 -6 12 -6 z" fill="#ffd166" stroke="none"/>
+            </g>
+          </svg>
+          <span class="sk-cap">senyuman pertama</span>
+        </div>
+        <div class="sk-sheet s2">
+          <svg viewBox="0 0 240 190" aria-hidden="true">
+            <g fill="none" stroke="#5b4a68" stroke-width="2.4" stroke-linecap="round">
+              <path d="M50 160 q30 -70 70 -70 q40 0 70 70"/>
+              <path d="M86 96 q-6 -40 34 -46 q40 -6 44 40"/>
+              <path d="M100 118 h12 M132 118 h12"/>
+              <path d="M112 140 q10 10 22 0"/>
+              <path d="M120 60 q-4 -22 14 -30" stroke-dasharray="5 7"/>
+              <path d="M168 52 c-4 -10 -18 -8 -18 3 0 9 12 17 18 24 6 -7 18 -15 18 -24 0 -11 -14 -13 -18 -3 z" fill="#e63946" stroke="none" opacity=".7"/>
+            </g>
+          </svg>
+          <span class="sk-cap">wajah yang selalu kutunggu</span>
+        </div>
+        <div class="sk-sheet s1" id="sk-front">
+          <div class="sk-cover">
+            <strong>Sketsa Rahasia</strong>
+            <span>ketuk untuk membuka</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-14"><p>“Di setiap goresan pensil ini, tersimpan wajah yang selama bertahun-tahun selalu menjadi pemandangan terindah di mataku.”</p></div>
+
+      <p class="status" id="st-14">Lembar terbuka: 0/3</p>
+      <button class="btn-main hidden" id="btn-14-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 15. CUBIT PIPI MANJA ============ -->
+    <section class="scene" id="scene-15" data-session="2" aria-label="Babak 15 Cubit Pipi Manja">
+      <div class="scene-emoji">😝</div>
+      <h2 class="scene-title">Cubit Pipi Manja</h2>
+      <p class="scene-sub">Cubit pipiku dan tarik pelan-pelan sampai aku cemberut lucu. Jangan sampai lepas, ya!</p>
+
+      <div class="toy pinch-stage" id="pinch-stage">
+        <div class="face pinch" id="pinch-face">
+          <span class="fc-eye l"></span><span class="fc-eye r"></span>
+          <span class="fc-blush l"></span><span class="fc-blush r"></span>
+          <span class="fc-mouth"></span>
+          <span class="fc-tear" id="fc-tear">💧</span>
+        </div>
+        <div class="pinch-target" id="pinch-target" role="button" tabindex="0" aria-label="Cubit dan tarik pipi ke kanan">
+          <span class="pinch-dot"></span>
+        </div>
+        <p class="toy-hint" id="pinch-hint">cubit &amp; tarik ke kanan →</p>
+      </div>
+
+      <div class="whisper" id="q-15"><p>“Jangan cemberut terus, kamu itu kalau lagi ngambek malah seribu kali lebih menggemaskan...”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-15"></span></div>
+      <p class="status" id="st-15">Cubitan: 0%</p>
+      <button class="btn-main hidden" id="btn-15-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 16. KOTAK MUSIK MELODI KENANGAN ============ -->
+    <section class="scene" id="scene-16" data-session="2" aria-label="Babak 16 Kotak Musik Melodi Kenangan">
+      <div class="scene-emoji">🎼</div>
+      <h2 class="scene-title">Kotak Musik Melodi Kenangan</h2>
+      <p class="scene-sub">Putar tuas kotak musik antik itu satu putaran penuh (360°) untuk memainkan melodi kristalnya.</p>
+
+      <div class="toy mbox" id="mbox">
+        <div class="mbox-box">
+          <div class="mbox-lid"><span class="mbox-inlay"></span></div>
+          <div class="mbox-dancer" id="mbox-dancer">
+            <span class="dz-heart">♥</span>
+            <span class="dz-body"></span>
+          </div>
+          <div class="mbox-notes" id="mbox-notes" aria-hidden="true"></div>
+          <div class="mbox-gears"><i class="gear g1"></i><i class="gear g2"></i></div>
+        </div>
+        <div class="crank" id="crank" role="slider" tabindex="0" aria-label="Tuas kotak musik" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0">
+          <div class="crank-arm" id="crank-arm">
+            <span class="crank-knob"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-16"><p>“Melodi ini mengalun pelan, mengiringi setiap doa dan mimpi yang akhirnya membawaku kembali ke pelukanmu.”</p></div>
+
+      <p class="status" id="st-16">Putaran: 0° / 360°</p>
+      <button class="btn-main hidden" id="btn-16-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 17. RASI BINTANG HARAPAN ============ -->
+    <section class="scene" id="scene-17" data-session="2" aria-label="Babak 17 Rasi Bintang Harapan">
+      <div class="scene-emoji">🌌</div>
+      <h2 class="scene-title">Rasi Bintang Harapan</h2>
+      <p class="scene-sub">Hubungkan 8 titik bintang yang berkedip sesuai urutan — jadikan konstelasi hati yang bercahaya keemasan.</p>
+
+      <div class="canvas-card night">
+        <svg id="constel-svg" viewBox="0 0 300 280" aria-label="Papan konstelasi">
+          <defs>
+            <radialGradient id="haloG" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffe29a" stop-opacity=".95"/>
+              <stop offset="45%" stop-color="#ffd166" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#ffd166" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <g id="constel-lines"></g>
+          <g id="constel-stars"></g>
+        </svg>
+      </div>
+
+      <div class="whisper" id="q-17"><p>“Dari jutaan kemungkinan di bawah langit semesta, aku bersyukur bintang takdirku selalu menunjuk ke arahmu.”</p></div>
+
+      <p class="status" id="st-17">Bintang tersambung: 0/8</p>
+      <button class="btn-main hidden" id="btn-17-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 18. KEMBANG API GENGGAM DI TEPI SUNGAI ============ -->
+    <section class="scene" id="scene-18" data-session="2" aria-label="Babak 18 Kembang Api Genggam">
+      <div class="scene-emoji">🎇</div>
+      <h2 class="scene-title">Kembang Api di Tepi Sungai</h2>
+      <p class="scene-sub">Gesek korek api di bawah ini bolak-balik sampai bunga api emasnya menyala dan menari.</p>
+
+      <div class="toy river-stage" id="river-stage">
+        <div class="river">
+          <span class="river-glint g1"></span><span class="river-glint g2"></span><span class="river-glint g3"></span>
+        </div>
+        <div class="sparkler" id="sparkler">
+          <div class="spk-rod"></div>
+          <div class="spk-tip" id="spk-tip"></div>
+          <div class="spk-stars" id="spk-stars" aria-hidden="true"></div>
+        </div>
+        <div class="strike-pad" id="strike-pad" role="button" tabindex="0" aria-label="Gesek korek api bolak-balik">
+          <div class="match" id="match"><span class="match-head"></span></div>
+          <span class="strike-hint">gesek bolak-balik ↔</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-18"><p>“Di antara kilau kembang api malam ini, aku melihat masa depan yang paling kuinginkan: berjalan bersamamu selamanya.”</p></div>
+
+      <div class="scrub-bar" aria-hidden="true"><span id="scrub-18"></span></div>
+      <p class="status" id="st-18">Percikan: 0%</p>
+      <button class="btn-main hidden" id="btn-18-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 19. SENSOR DETAK JANTUNG BERDEBAR ============ -->
+    <section class="scene" id="scene-19" data-session="2" aria-label="Babak 19 Sensor Detak Jantung">
+      <div class="scene-emoji">💗</div>
+      <h2 class="scene-title">Sensor Detak Jantung Berdebar</h2>
+      <p class="scene-sub">Tempel dan tahan jari di sensor selama 3 detik — dengarkan detak yang makin cepat ini.</p>
+
+      <div class="toy hb-stage" id="hb-stage">
+        <svg class="ekg" viewBox="0 0 320 110" aria-hidden="true">
+          <path id="ekg-path" d="M0 55 H60 l10 -30 l12 60 l12 -46 l10 16 H150 l10 -30 l12 60 l12 -46 l10 16 H320"
+                fill="none" stroke="#ff9aa2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="hb-wrap">
+          <svg class="hb-ring" viewBox="0 0 140 140" aria-hidden="true">
+            <circle class="hb-track" cx="70" cy="70" r="60"></circle>
+            <circle class="hb-fill" id="hb-fill" cx="70" cy="70" r="60"></circle>
+          </svg>
+          <button class="hb-pad" id="hb-pad" type="button">
+            <span class="hb-core" id="hb-core">🫀</span>
+            <span class="hb-label">tahan di sini</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-19"><p>“Bisakah kamu mendengar detak jantung ini? Dari dulu hingga sekarang, ia hanya berdegup sekencang ini untuk satu orang: kamu.”</p></div>
+
+      <p class="status" id="st-19">Progres: 0%</p>
+      <button class="btn-main hidden" id="btn-19-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 20. TOPLES KACA PENUH RATUSAN BINTANG ============ -->
+    <section class="scene" id="scene-20" data-session="2" aria-label="Babak 20 Toples Penuh Ratusan Bintang">
+      <div class="scene-emoji">🌠</div>
+      <h2 class="scene-title">Toples Penuh Ratusan Bintang</h2>
+      <p class="scene-sub">Toples ini kini padat berisi lipatan bintang bertahun-tahun. Buka gemboknya dan biarkan semuanya berhamburan.</p>
+
+      <div class="toy jar2-stage">
+        <div class="jar big" id="jar2">
+          <div class="jar-lid" id="jar2-lid"></div>
+          <div class="jar-glass">
+            <div class="star-fill" id="star-fill"></div>
+            <div class="jar-shine"></div>
+          </div>
+          <div class="padlock" id="padlock" role="button" tabindex="0" aria-label="Ketuk gembok untuk membuka">
+            <div class="lock-shackle" id="lock-shackle"></div>
+            <div class="lock-body"><span class="lock-keyhole"></span></div>
+            <span class="lock-hint">ketuk gembok</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-20"><p>“Dan akhirnya aku tahu... rahasia yang kusimpan di dalam toples ini bukanlah sebuah penantian sia-sia, karena ternyata hatimu juga diam-diam menyambutku...”</p></div>
+
+      <p class="status" id="st-20">Toples masih tergembok</p>
+      <button class="btn-main hidden" id="btn-20-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 21. SURAT SEGEL LILIN BUNGA PERSIK ============ -->
+    <section class="scene" id="scene-21" data-session="2" aria-label="Babak 21 Surat Segel Lilin">
+      <div class="scene-emoji">💌</div>
+      <h2 class="scene-title">Surat Segel Lilin Bunga Persik</h2>
+      <p class="scene-sub">Amplop mawar senja dengan cap lilin mawar. Ketuk segel itu — surat pengakuan terpanjangku akan terbentang.</p>
+
+      <div class="toy env-stage" id="env-stage">
+        <div class="letter-sheet" id="letter-sheet">
+          <p class="letter-body" id="letter-text"></p><span class="caret" id="caret"></span>
+          <p class="letter-sign" id="letter-sign"></p>
+          <button class="skip-btn hidden" id="btn-skip" type="button">lewati ketikan</button>
+        </div>
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-front"></div>
+          <div class="env-flap" id="env-flap"></div>
+          <div class="wax" id="wax" role="button" tabindex="0" aria-label="Ketuk segel lilin">
+            <span class="wax-ring"></span>
+            <span class="wax-mark">❀</span>
+          </div>
+          <span class="env-hint" id="env-hint">ketuk segel lilin</span>
+        </div>
+      </div>
+
+      <div class="whisper" id="q-21"><p>“Segel ini sudah lama menunggu untuk dipecahkan...”</p></div>
+
+      <p class="status" id="st-21">Surat masih tersegel</p>
+      <button class="btn-main hidden" id="btn-21-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 22. GRAND FINALE ============ -->
+    <section class="scene" id="scene-22" data-session="2" aria-label="Babak 22 Grand Finale">
+      <div class="scene-emoji">🌸</div>
+      <h2 class="scene-title">Kelopak Persik &amp; Janji Bersama</h2>
+
+      <div class="petal-rain" id="petal-rain" aria-hidden="true"></div>
+
+      <div class="finale-card">
+        <div class="crystal-heart" id="crystal-heart">
+          <span>♥</span>
+          <i class="glare"></i>
+        </div>
+        <h3 class="finale-hand">Forever in My Heart</h3>
+        <p class="finale-text">Satu rahasia yang akhirnya kamu tahu: semua lipatan bintang, semua lentera, semua doa malam — namamu. Terima kasih sudah berjalan sampai ujung cerita ini bersamaku. 🌸</p>
+
+        <div class="finale-stats">
+          <div class="fs"><b>22</b><span>kenangan</span></div>
+          <div class="fs"><b>3</b><span>lagu</span></div>
+          <div class="fs"><b>∞</b><span>rasa</span></div>
+        </div>
+
+        <div class="finale-music">
+          <button class="fm-btn" id="fm-prev" type="button">⏮</button>
+          <button class="fm-btn" id="fm-play" type="button">▶</button>
+          <button class="fm-btn" id="fm-next" type="button">⏭</button>
+          <span class="fm-name" id="fm-name">Rahasia Hati</span>
+          <input type="range" id="fm-vol" min="0" max="100" value="70" aria-label="Volume musik" />
+        </div>
+
+        <a id="btn-wa" class="btn-wa" href="#" target="_blank" rel="noopener">💌 Kirim Balasan Cinta</a>
+        <button class="btn-repeat" type="button" onclick="restartJourney()">🔄 Putar Ulang dari Awal</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ LAYAR JEDA ============ -->
+  <div id="session-break" class="hidden" role="dialog" aria-modal="true" aria-label="Jeda sejenak">
+    <div class="sb-card">
+      <span class="sb-emoji">🌸</span>
+      <p class="sb-kicker">Jeda Sejenak</p>
+      <h3 class="sb-title">Masa Awal &amp; Rahasia yang Disimpan Rapat</h3>
+      <p class="sb-text">Sebelas cerita sudah kita lewati — dari toples bintang pertama sampai tiket perjalanan yang menandai aku tumbuh dewasa karena rasa ini.</p>
+      <div class="sb-divider"><span>✦</span></div>
+      <span class="sb-emoji">💍</span>
+      <p class="sb-kicker next">Bagian Selanjutnya</p>
+      <p class="sb-text">Reuni, keberanian, dan janji bersama sedang menunggu.</p>
+      <button id="btn-start-s2" class="btn-main" type="button">Lanjutkan →</button>
+    </div>
+  </div>
+
+  <canvas id="finale-canvas" aria-hidden="true"></canvas>
+
+  <audio id="bg-audio" loop preload="none" src="assets/hidden_love_theme.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
